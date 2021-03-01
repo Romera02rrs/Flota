@@ -2,7 +2,8 @@ public class main {
 
 
     //Instancias
-    static cTablero flota = new cTablero();
+    static cTablero tablero = new cTablero();
+    static cBarco barco = new cBarco();
     //Variables
     public int fila;
     public int columna;
@@ -13,9 +14,10 @@ public class main {
 
         do{
 
-            flota.reiniciarTablero();
-            flota.mostrarTablero();
-            flota.colocarBarcos();
+            tablero.reiniciarTablero();
+            tablero.mostrarTablero();
+            barco.esocgeBarco(false, false, false, false, false);
+            tablero.colocarBarco();
 
         }while(false);
     }

@@ -1,6 +1,7 @@
-public class cPortaAviones {
+public class cPortaAviones extends cBarco{
 
-    public class portaAviones extends cBarco{
+    public cPortaAviones(){
 
+        grandaria = 4;
     }
 }

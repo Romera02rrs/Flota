@@ -1,2 +1,7 @@
-public class cDestructor {
+public class cDestructor extends cBarco{
+
+    public void destructor(){
+
+        grandaria = 2;
+    }
 }

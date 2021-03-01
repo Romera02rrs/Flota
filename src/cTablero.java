@@ -83,36 +83,15 @@ public class cTablero {
         }
     }
 
-    public void colocarBarcos(){
+    public void colocarBarco(){
 
-        boolean a, d, f , p, s;
-        System.out.println("""
-                
-                
-                Escoge un barco: Acorazado, Destructor, Fragata, PortaAviones, Submarino. 
-                """);
-        String num = leerString.nextLine();
-        a = false;
-        d = false;
-        f = false;
-        p = false;
-        s = false;
-        if (num.equalsIgnoreCase("a")){
-            a = true;
-        } else if(num.equalsIgnoreCase("d")){
-            d = true;
-        } else if(num.equalsIgnoreCase("f")){
-            f = true;
-        } else if(num.equalsIgnoreCase("p")){
-            p = true;
-        } else {
-            s = true;
-        }
+        int posX;
+        int posY;
+
         System.out.println("En que posicion 'X' quieres el barco:");
         posX = leerInt.nextInt();
         System.out.println("En que posicion 'Y' quieres el barco:");
         posY = leerInt.nextInt();
-        System.out.println(posX+" "+posY);
         posX -= 1;
         posY -= 1;
         tablero[posX][posY] = 'X';
@@ -145,5 +124,54 @@ public class cTablero {
             tablero[posX][posY+2] = 'A';
         }
         mostrarTablero();
+
+    }
+
+    public void colocarBarco2(){
+
+        cBarco prueba = new cBarco();
+
+        if(prueba.esocgeBarco(boolen a = true)){
+
+        }
+        int posX;
+        int posY;
+        System.out.println("En que posicion 'X' quieres el barco:");
+        posX = leerInt.nextInt();
+        System.out.println("En que posicion 'Y' quieres el barco:");
+        posY = leerInt.nextInt();
+        posX -= 1;
+        posY -= 1;
+        tablero[posX][posY] = 'X';
+        mostrarTablero();
+        System.out.println("\n\nEn que direccion quieres colocar el barco: arr - aba - izq - der");
+        String direccion = leerString.nextLine();
+        boolean arr, aba, izq, der;
+        arr = false;
+        aba = false;
+        izq = false;
+        der = false;
+        if (direccion.equalsIgnoreCase("arr")){
+            tablero[posX][posY] = 'A';
+            tablero[posX-1][posY] = 'A';
+            tablero[posX-2][posY] = 'A';
+        } else if(direccion.equalsIgnoreCase("aba")){
+            aba = true;
+            tablero[posX][posY] = 'A';
+            tablero[posX+1][posY] = 'A';
+            tablero[posX+2][posY] = 'A';
+        } else if(direccion.equalsIgnoreCase("izq")){
+            izq = true;
+            tablero[posX][posY] = 'A';
+            tablero[posX][posY-1] = 'A';
+            tablero[posX][posY-2] = 'A';
+        } else{
+            der = true;
+            tablero[posX][posY] = 'A';
+            tablero[posX][posY+1] = 'A';
+            tablero[posX][posY+2] = 'A';
+        }
+        mostrarTablero();
+
     }
 }
