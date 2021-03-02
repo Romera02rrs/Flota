@@ -262,6 +262,7 @@ public class cTablero {
                     tablero[posX][posY+2] = 'S';
                 }
                 mostrarTablero();
+                System.out.println("Prueba Git");
             }
         }
     }
