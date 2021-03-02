@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class cBarco {
@@ -6,12 +8,25 @@ public class cBarco {
 
     protected int grandaria = 0;
 
-    public void cBarco() {
+    public boolean a;
+    public boolean d;
+    public boolean f;
+    public boolean p;
+    public boolean s;
+    public boolean nb;
 
+    public cBarco(){
 
     }
 
-    public boolean esocgeBarco(boolean a, boolean d, boolean f, boolean p, boolean s) {
+    public boolean esocgeBarco() {
+
+         a = false;
+         d = false;
+         f = false;
+         p = false;
+         s = false;
+         nb = false;
 
         System.out.println("""
                                 
@@ -19,21 +34,19 @@ public class cBarco {
                 Escoge un barco: Acorazado, Destructor, Fragata, PortaAviones, Submarino. 
                 """);
         String num = leerString.nextLine();
-        a = false;
-        d = false;
-        f = false;
-        p = false;
-        s = false;
-        if (num.equalsIgnoreCase("a")) {
+        if (num.equals("a")) {
             return a = true;
-        } else if (num.equalsIgnoreCase("d")) {
+        } else if (num.equals("d")) {
             return d = true;
-        } else if (num.equalsIgnoreCase("f")) {
+        } else if (num.equals("f")) {
             return f = true;
-        } else if (num.equalsIgnoreCase("p")) {
+        } else if (num.equals("p")) {
             return p = true;
-        } else {
+        } else if (num.equals("s")) {
             return s = true;
+        } else{
+            System.out.println("No has escogido ningun barco valido");
+            return nb = true;
         }
     }
 }
