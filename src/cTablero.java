@@ -2,6 +2,10 @@ import java.util.Formattable;
 import java.util.Scanner;
 public class cTablero {
 
+    cBarco barco = new cBarco();
+
+    //boolean a = cBarco.a;
+
     //Declaracion de las constantes del tablero.
     static final int X = 8;
     static final int Y = 8;
@@ -9,6 +13,7 @@ public class cTablero {
     Scanner leerInt = new Scanner(System.in);
     Scanner leerString = new Scanner(System.in);
     //Declaracion de las variables;
+    int numBarcos = 0;
     int posX;
     int posY;
     //Declaracion del tamaño de los barcos.
@@ -87,7 +92,6 @@ public class cTablero {
 
         int posX;
         int posY;
-
         System.out.println("En que posicion 'X' quieres el barco:");
         posX = leerInt.nextInt();
         System.out.println("En que posicion 'Y' quieres el barco:");
@@ -124,15 +128,27 @@ public class cTablero {
             tablero[posX][posY+2] = 'A';
         }
         mostrarTablero();
-
     }
 
     public void colocarBarco2(){
 
-        cBarco prueba = new cBarco();
+        do {
+            barco.esocgeBarco();
+        } while (barco.nb == true);
 
-        if(prueba.esocgeBarco(boolen a = true)){
-
+        System.out.println("Hola");
+        if(barco.a == true){
+            System.out.println("Acorazado escogido");
+        }else if (barco.d == true){
+            System.out.println("Destructor escogido");
+        }else if (barco.f == true){
+            System.out.println("Fragata escogido");
+        }else if (barco.p == true){
+            System.out.println("Porta Aviones escogido");
+        }else if (barco.s == true){
+            System.out.println("Submarino escogido");
+        }else{
+            System.out.println("Aqui no deberia de llegar");
         }
         int posX;
         int posY;
@@ -142,36 +158,111 @@ public class cTablero {
         posY = leerInt.nextInt();
         posX -= 1;
         posY -= 1;
-        tablero[posX][posY] = 'X';
-        mostrarTablero();
-        System.out.println("\n\nEn que direccion quieres colocar el barco: arr - aba - izq - der");
-        String direccion = leerString.nextLine();
-        boolean arr, aba, izq, der;
-        arr = false;
-        aba = false;
-        izq = false;
-        der = false;
-        if (direccion.equalsIgnoreCase("arr")){
-            tablero[posX][posY] = 'A';
-            tablero[posX-1][posY] = 'A';
-            tablero[posX-2][posY] = 'A';
-        } else if(direccion.equalsIgnoreCase("aba")){
-            aba = true;
-            tablero[posX][posY] = 'A';
-            tablero[posX+1][posY] = 'A';
-            tablero[posX+2][posY] = 'A';
-        } else if(direccion.equalsIgnoreCase("izq")){
-            izq = true;
-            tablero[posX][posY] = 'A';
-            tablero[posX][posY-1] = 'A';
-            tablero[posX][posY-2] = 'A';
-        } else{
-            der = true;
-            tablero[posX][posY] = 'A';
-            tablero[posX][posY+1] = 'A';
-            tablero[posX][posY+2] = 'A';
+        if (barco.f == true){
+            tablero[posX][posY] = 'F';
+            mostrarTablero();
+        }else{
+            tablero[posX][posY] = 'X';
+            mostrarTablero();
+            System.out.println("\n\nEn que direccion quieres colocar el barco: arr - aba - izq - der");
+            String direccion = leerString.nextLine();
+            boolean arr, aba, izq, der;
+            arr = false;
+            aba = false;
+            izq = false;
+            der = false;
+            if (barco.a == true){
+                if (direccion.equalsIgnoreCase("arr")){
+                    tablero[posX][posY] = 'A';
+                    tablero[posX-1][posY] = 'A';
+                    tablero[posX-2][posY] = 'A';
+                } else if(direccion.equalsIgnoreCase("aba")){
+                    aba = true;
+                    tablero[posX][posY] = 'A';
+                    tablero[posX+1][posY] = 'A';
+                    tablero[posX+2][posY] = 'A';
+                } else if(direccion.equalsIgnoreCase("izq")){
+                    izq = true;
+                    tablero[posX][posY] = 'A';
+                    tablero[posX][posY-1] = 'A';
+                    tablero[posX][posY-2] = 'A';
+                } else{
+                    der = true;
+                    tablero[posX][posY] = 'A';
+                    tablero[posX][posY+1] = 'A';
+                    tablero[posX][posY+2] = 'A';
+                }
+                mostrarTablero();
+            }
+            if (barco.d == true){
+                if (direccion.equalsIgnoreCase("arr")){
+                    tablero[posX][posY] = 'B';
+                    tablero[posX-1][posY] = 'B';
+                } else if(direccion.equalsIgnoreCase("aba")){
+                    aba = true;
+                    tablero[posX][posY] = 'B';
+                    tablero[posX+1][posY] = 'B';
+                } else if(direccion.equalsIgnoreCase("izq")){
+                    izq = true;
+                    tablero[posX][posY] = 'B';
+                    tablero[posX][posY-1] = 'B';
+                } else{
+                    der = true;
+                    tablero[posX][posY] = 'B';
+                    tablero[posX][posY+1] = 'B';;
+                }
+                mostrarTablero();
+            }
+            if (barco.p == true){
+                if (direccion.equalsIgnoreCase("arr")){
+                    tablero[posX][posY] = 'P';
+                    tablero[posX-1][posY] = 'P';
+                    tablero[posX-2][posY] = 'P';
+                    tablero[posX-3][posY] = 'P';
+                } else if(direccion.equalsIgnoreCase("aba")){
+                    aba = true;
+                    tablero[posX][posY] = 'P';
+                    tablero[posX+1][posY] = 'P';
+                    tablero[posX+2][posY] = 'P';
+                    tablero[posX+3][posY] = 'P';
+                } else if(direccion.equalsIgnoreCase("izq")){
+                    izq = true;
+                    tablero[posX][posY] = 'P';
+                    tablero[posX][posY-1] = 'P';
+                    tablero[posX][posY-2] = 'P';
+                    tablero[posX][posY-3] = 'P';
+                } else{
+                    der = true;
+                    tablero[posX][posY] = 'P';
+                    tablero[posX][posY+1] = 'P';
+                    tablero[posX][posY+2] = 'P';
+                    tablero[posX][posY+3] = 'P';
+                }
+                mostrarTablero();
+            }
+            if (barco.s == true){
+                if (direccion.equalsIgnoreCase("arr")){
+                    tablero[posX][posY] = 'S';
+                    tablero[posX-1][posY] = 'S';
+                    tablero[posX-2][posY] = 'S';
+                } else if(direccion.equalsIgnoreCase("aba")){
+                    aba = true;
+                    tablero[posX][posY] = 'S';
+                    tablero[posX+1][posY] = 'S';
+                    tablero[posX+2][posY] = 'S';
+                } else if(direccion.equalsIgnoreCase("izq")){
+                    izq = true;
+                    tablero[posX][posY] = 'S';
+                    tablero[posX][posY-1] = 'S';
+                    tablero[posX][posY-2] = 'S';
+                } else{
+                    der = true;
+                    tablero[posX][posY] = 'S';
+                    tablero[posX][posY+1] = 'S';
+                    tablero[posX][posY+2] = 'S';
+                }
+                mostrarTablero();
+            }
         }
-        mostrarTablero();
-
     }
 }

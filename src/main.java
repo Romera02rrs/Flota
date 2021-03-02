@@ -8,6 +8,7 @@ public class main {
     public int fila;
     public int columna;
     public int grandaria;
+    static int numBarcos = 5;
 
 
     public static void main(String[] args) {
@@ -16,8 +17,10 @@ public class main {
 
             tablero.reiniciarTablero();
             tablero.mostrarTablero();
-            barco.esocgeBarco(false, false, false, false, false);
-            tablero.colocarBarco();
+            while(numBarcos != 0){
+                tablero.colocarBarco2();
+                numBarcos -= 1;
+            }
 
         }while(false);
     }
